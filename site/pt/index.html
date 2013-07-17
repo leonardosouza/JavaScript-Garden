@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="pt"><head><title>JavaScript Garden</title><meta charset="utf-8"><meta name="description" content="Um guia sobre as peculiaridades e defeitos do JavaScript."><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="../style/garden.css" media="all"><link rel="stylesheet" href="../style/print.css" media="print"><!--[if lt IE 9]>
 <script src="javascript/html5.js"></script>
 <![endif]-->
-</head><body><!-- Navigation--><nav id="nav_main"><div><ul><li><a href="/JavaScript-Garden/" title="JavaScript Garden in English">en</a></li><li><a href="/JavaScript-Garden/es" title="JavaScript Garden es Español">es</a></li><li><a href="/JavaScript-Garden/fi" title="JavaScript-puutarha suomeksi">fi</a></li><li><a href="/JavaScript-Garden/ja" title="JavaScript Garden in Japanese">ja</a></li><li><a href="/JavaScript-Garden/ko" title="JavaScript Garden">ko</a></li><li><a href="/JavaScript-Garden/pl" title="JavaScript Garden - ogród JavaScript po polsku">pl</a></li><li class="active"><a href="/JavaScript-Garden/pt" title="JavaScript Garden em Português">pt</a></li><li><a href="/JavaScript-Garden/ru" title="JavaScript Гарден по-русски">ru</a></li><li><a href="/JavaScript-Garden/tr" title="JavaScript Garden Türkçe">tr</a></li><li><a href="/JavaScript-Garden/zh" title="JavaScript Garden 中文翻译">zh</a></li><li><a href="/JavaScript-Garden/zhtw" title="JavaScript Garden 繁體中文翻譯">zhtw</a></li></ul><a id="top" href="#intro" title="Back to top">#top</a><a id="hide_menu" class="tablet">Hide Menu</a></div><ul><li class="nav_intro"><h1><a href="#intro">Introdução</a></h1><ul></ul></li><li class="nav_object"><h1><a href="#object">Objetos</a></h1><ul><li><a href="#object.general">Uso de objetos e propriedades</a></li><li><a href="#object.prototype">Prototipo</a></li><li><a href="#object.hasownproperty"><code>hasOwnProperty</code></a></li><li><a href="#object.forinloop">El bucle <code>for in</code></a></li></ul></li><li class="nav_function"><h1><a href="#function">Funções</a></h1><ul><li><a href="#function.general">La declaración de funciones y expresiones</a></li><li><a href="#function.this">Cómo trabaja <code>this</code></a></li><li><a href="#function.closures">Closures y referencias</a></li><li><a href="#function.arguments">El objeto <code>arguments</code></a></li><li><a href="#function.constructors">Constructores</a></li><li><a href="#function.scopes">Ámbitos y Namespaces</a></li></ul></li><li class="nav_array"><h1><a href="#array">Arrays</a></h1><ul><li><a href="#array.general">Iteración de un Array y sus propiedades</a></li><li><a href="#array.constructor">El constructor <code>Array</code></a></li></ul></li><li class="nav_types"><h1><a href="#types">Tipos</a></h1><ul><li><a href="#types.equality">Equality and Comparisons</a></li><li><a href="#types.typeof">The <code>typeof</code> Operator</a></li><li><a href="#types.instanceof">The <code>instanceof</code> Operator</a></li><li><a href="#types.casting">Type Casting</a></li></ul></li><li class="nav_core"><h1><a href="#core">Núcleo</a></h1><ul><li><a href="#core.eval">¿Por qué no usar <code>eval</code>?</a></li><li><a href="#core.undefined"><code>undefined</code> y <code>null</code></a></li><li><a href="#core.semicolon">Automatic Semicolon Insertion</a></li></ul></li><li class="nav_other"><h1><a href="#other">Outros</a></h1><ul><li><a href="#other.timeouts"><code>setTimeout</code> and <code>setInterval</code></a></li></ul></li></ul></nav><!-- Mobile navigation--><nav id="nav_mobile"><a id="nav_prev_section" href="#">prev section<span class="nav_section_name">section name</span></a><a id="nav_next_section" href="#">next section<span class="nav_section_name">section name</span></a><a id="show_menu">show menu</a></nav><!-- Sections--><section id="intro"><!-- Introduction--><header id="intro.intro"><h1>Introdução</h1><div><p><strong>Javascript Garden</strong> é uma coleção crescente de documentação sobre as partes mais peculiares da linguagem de programação JavaScript. Ele dá conselhos para evitar os erros mais comuns e sútis, bem como problemas de desempenho e más práticas, que os programadores de JavaScript não-especialistas podem encontrar em seus estudos ao se aprofundar na linguagem.</p>
+</head><body><!-- Navigation--><nav id="nav_main"><div><ul><li><a href="/JavaScript-Garden/" title="JavaScript Garden in English">en</a></li><li><a href="/JavaScript-Garden/es" title="JavaScript Garden es Español">es</a></li><li><a href="/JavaScript-Garden/fi" title="JavaScript-puutarha suomeksi">fi</a></li><li><a href="/JavaScript-Garden/ja" title="JavaScript Garden in Japanese">ja</a></li><li><a href="/JavaScript-Garden/ko" title="JavaScript Garden">ko</a></li><li><a href="/JavaScript-Garden/pl" title="JavaScript Garden - ogród JavaScript po polsku">pl</a></li><li class="active"><a href="/JavaScript-Garden/pt" title="JavaScript Garden em Português">pt</a></li><li><a href="/JavaScript-Garden/ru" title="JavaScript Гарден по-русски">ru</a></li><li><a href="/JavaScript-Garden/tr" title="JavaScript Garden Türkçe">tr</a></li><li><a href="/JavaScript-Garden/zh" title="JavaScript Garden 中文翻译">zh</a></li><li><a href="/JavaScript-Garden/zhtw" title="JavaScript Garden 繁體中文翻譯">zhtw</a></li></ul><a id="top" href="#intro" title="Back to top">#top</a><a id="hide_menu" class="tablet">Hide Menu</a></div><ul><li class="nav_intro"><h1><a href="#intro">Introdução</a></h1><ul></ul></li><li class="nav_object"><h1><a href="#object">Objetos</a></h1><ul><li><a href="#object.general">Uso de objetos e propriedades</a></li><li><a href="#object.prototype">Protótipo</a></li><li><a href="#object.hasownproperty"><code>hasOwnProperty</code></a></li><li><a href="#object.forinloop">El bucle <code>for in</code></a></li></ul></li><li class="nav_function"><h1><a href="#function">Funções</a></h1><ul><li><a href="#function.general">La declaración de funciones y expresiones</a></li><li><a href="#function.this">Cómo trabaja <code>this</code></a></li><li><a href="#function.closures">Closures y referencias</a></li><li><a href="#function.arguments">El objeto <code>arguments</code></a></li><li><a href="#function.constructors">Constructores</a></li><li><a href="#function.scopes">Ámbitos y Namespaces</a></li></ul></li><li class="nav_array"><h1><a href="#array">Arrays</a></h1><ul><li><a href="#array.general">Iteración de un Array y sus propiedades</a></li><li><a href="#array.constructor">El constructor <code>Array</code></a></li></ul></li><li class="nav_types"><h1><a href="#types">Tipos</a></h1><ul><li><a href="#types.equality">Equality and Comparisons</a></li><li><a href="#types.typeof">The <code>typeof</code> Operator</a></li><li><a href="#types.instanceof">The <code>instanceof</code> Operator</a></li><li><a href="#types.casting">Type Casting</a></li></ul></li><li class="nav_core"><h1><a href="#core">Núcleo</a></h1><ul><li><a href="#core.eval">¿Por qué no usar <code>eval</code>?</a></li><li><a href="#core.undefined"><code>undefined</code> y <code>null</code></a></li><li><a href="#core.semicolon">Automatic Semicolon Insertion</a></li></ul></li><li class="nav_other"><h1><a href="#other">Outros</a></h1><ul><li><a href="#other.timeouts"><code>setTimeout</code> and <code>setInterval</code></a></li></ul></li></ul></nav><!-- Mobile navigation--><nav id="nav_mobile"><a id="nav_prev_section" href="#">prev section<span class="nav_section_name">section name</span></a><a id="nav_next_section" href="#">next section<span class="nav_section_name">section name</span></a><a id="show_menu">show menu</a></nav><!-- Sections--><section id="intro"><!-- Introduction--><header id="intro.intro"><h1>Introdução</h1><div><p><strong>Javascript Garden</strong> é uma coleção crescente de documentação sobre as partes mais peculiares da linguagem de programação JavaScript. Ele dá conselhos para evitar os erros mais comuns e sútis, bem como problemas de desempenho e más práticas, que os programadores de JavaScript não-especialistas podem encontrar em seus estudos ao se aprofundar na linguagem.</p>
 
 <p>Javascript Garden não pretende ensinar-lhe JavaScript. O pré-conhecimento da linguagem é altamente recomendável, a fim de compreender os tópicos abordados neste guia. Se você preferir, aprender as noções básicas da linguagem, por favor, dirija-se ao excelente <a href="https://developer.mozilla.org/en/JavaScript/Guide">guia</a>
 disponível no Mozilla Developer Network.</p>
@@ -119,47 +119,47 @@ for(var i in obj) {
 <p>As propriedades dos objetos podem ser definidos com carateres simples como strings. Devido ao mal desenho do parser Javascript, o exemplo anterior lançará uma excessão <code>SyntaxError</code> para ambientes rodando versões anteriores ao
 ECMAScript 5.</p>
 
-<p>Este erro se deve ao fato de <code>delete</code> ser uma <em>palavra reservada</em> da linguagem, por tanto deve ser definido como uma string literal para garantir que ele será interpretado corretamente pelos parsers Javascript mais velhos.</p></div></article><article id="object.prototype"><h2>Prototipo</h2><div><p>JavaScript no posee en sus características un sistema clásico de herencia, sino que 
-utiliza un <em>prototipo</em> para esto. </p>
+<p>Este erro se deve ao fato de <code>delete</code> ser uma <em>palavra reservada</em> da linguagem, por tanto deve ser definido como uma string literal para garantir que ele será interpretado corretamente pelos parsers Javascript mais velhos.</p></div></article><article id="object.prototype"><h2>Protótipo</h2><div><p>Javascript não possue em suas características um sistema clássico de herença, mas utiliza <em>protótipos</em> para isto.</p>
 
-<p>Si bien a menudo se considera uno de los puntos débiles de JavaScript, el
-modelo de herecia prototipado es de hecho más poderoso que el modelo clásico.
-Por ejemplo, es bastante trivial construir un modelo clásico en la parte superior del mismo,
-mientras esto es una tarea mucho más difícil.</p>
+<p>Enquanto isso muitas vezes é considerada um dos pontos fracos do JavaScript, o modelo de herança prototípica é de fato mais poderoso que o modelo clássico. Por exemplo, é relativamente trivial construir um modelo clássico baseado em um modelo de protótipo, enquanto o contrário é uma tarefa muito mais difícil.</p>
 
-<p>Debido al hecho que JavaScript es básicamente el único lenguaje que utiliza
-apliamente la herencia prototipada, se necesita algo de tiempo para adaptarse a
-las diferencias entre los dos modelos.</p>
+<p>JavaScript é a única linguagem utilizada, que apresenta herança prototípica, por isso pode-se levar algum tempo para ajustar-se às diferenças entre os dois modelos.</p>
 
-<p>La primera gran diferencia es que la herencia en JavaScript se realiza usando
-llamadas de <em>cadenas de prototipo</em> (<em>prototype chains</em>).</p>
+<p>A primeira grande diferença é que a herança em JavaScript usa <em>cadeias de protótipos</em> (<em>prototype chains</em>).</p>
 
 <aside>
-  <p><strong>Nota:</strong> Simplemente usando <code>Bar.prototype = Foo.prototype</code> dará lugar a dos objetos 
-  que comparten el <strong>mismo</strong> prototipo. Por lo tanto, los cambios que se realicen en un 
-  objeto afectará al otro objeto, así, en la mayoría de los casos no es el efecto 
-  deseado.</p>
+  <p><strong>Nota:</strong> Simplesmente usando <code>Bar.prototype = Foo.prototype</code> teremos dois objetos 
+  que compartilham o <strong>mesmo</strong> protótipo. Portanto, as mudanças que se realizem em um 
+  destes objetos afetará o outro objeto, sendo assim, na maioria dos casos não este não é 
+  o comportamento desejado pelo desenvolvedor.</p>
 </aside>
 
-<pre><code>function Foo() {
+<pre><code>// construtor Foo
+function Foo() {
     this.value = 42;
 }
+
+// Adiciona um método ao protótipo do construtor Foo
 Foo.prototype = {
     method: function() {}
-};
+}
 
+// construtor Bar
 function Bar() {}
 
-// Asigna el prototipo de Bar como una nueva instancia de Foo
+// Define o protótipo de Bar como uma nova instância de Foo
 Bar.prototype = new Foo();
+
+// Adiciona ao protótipo de Bar uma nova propriedade
 Bar.prototype.foo = &#39;Hello World&#39;;
 
-// Asegura que el constructor sea Bar
+// Assegura que o construcor seja Bar
 Bar.prototype.constructor = Bar;
 
-var test = new Bar() // crea una nueva instancia de Bar
+// cria uma nova instância do construtor Bar
+var test = new Bar(); 
 
-// Resultado de cadena de prototipos (prototype chain)
+// Resultado da cadeia de protótipos (prototype chain)
 test [instance of Bar]
     Bar.prototype [instance of Foo] 
         { foo: &#39;Hello World&#39; }
@@ -169,12 +169,13 @@ test [instance of Bar]
                 { toString: ... /* etc. */ }
 </code></pre>
 
-<p>En el código anterior, el objeto <code>test</code> hereda de <code>Bar.prototype</code> y <code>Foo.prototype</code>; 
-por lo tanto, tendrá acceso a la función <code>method</code> que se ha definido en <code>Foo</code>. 
-También se tendrá acceso a a la propiedad <code>value</code> de la <strong>única</strong> instancia de <code>Foo</code> 
-que compone su prototipo. Es importante tomar en cuenta que <code>new Bar()</code> <strong>no</strong> creará una nueva 
-instancia de <code>Foo</code>, pero retornará lo asignado en su prototipo; de este modo, todas las instancias 
-de <code>Bar</code> tendrán que compartir el <strong>mismo</strong> <code>valor</code> de la propiedad.</p>
+<p>No código anterior, o objeto <code>test</code> hedará de <code>Bar.prototype</code> e <code>Foo.prototype</code>,
+por isso ele terá acesso a função <code>method</code> que foi definida em <code>Foo</code>.</p>
+
+<p>Ele também terá acesso a propriedade <code>value</code> da <strong>única</strong> instância de <code>Foo</code> 
+que compõe seu protótipo. É importante notar que <code>new Bar()</code> <strong>não</strong> criará uma nova
+instância de <code>Foo</code>, mas reutilizará os atributos associados ao seu protótipo, desta forma, 
+todas as instâncias de <code>Bar</code> compartilharão o <strong>mesmo</strong> <code>valor</code> da propriedade.</p>
 
 <aside>
   <p><strong>Nota:</strong> <strong>No</strong> utilice <code>Bar.prototype = Foo</code>, ya que no apunta al prototipo

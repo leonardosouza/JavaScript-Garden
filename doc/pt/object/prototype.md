@@ -1,44 +1,44 @@
-## Prototipo
+## Protótipo
 
-JavaScript no posee en sus características un sistema clásico de herencia, sino que 
-utiliza un *prototipo* para esto. 
+Javascript não possue em suas características um sistema clássico de herença, mas utiliza *protótipos* para isto.
 
-Si bien a menudo se considera uno de los puntos débiles de JavaScript, el
-modelo de herecia prototipado es de hecho más poderoso que el modelo clásico.
-Por ejemplo, es bastante trivial construir un modelo clásico en la parte superior del mismo,
-mientras esto es una tarea mucho más difícil.
+Enquanto isso muitas vezes é considerada um dos pontos fracos do JavaScript, o modelo de herança prototípica é de fato mais poderoso que o modelo clássico. Por exemplo, é relativamente trivial construir um modelo clássico baseado em um modelo de protótipo, enquanto o contrário é uma tarefa muito mais difícil.
 
-Debido al hecho que JavaScript es básicamente el único lenguaje que utiliza
-apliamente la herencia prototipada, se necesita algo de tiempo para adaptarse a
-las diferencias entre los dos modelos.
+JavaScript é a única linguagem utilizada, que apresenta herança prototípica, por isso pode-se levar algum tempo para ajustar-se às diferenças entre os dois modelos.
 
-La primera gran diferencia es que la herencia en JavaScript se realiza usando
-llamadas de *cadenas de prototipo* (*prototype chains*).
+A primeira grande diferença é que a herança em JavaScript usa *cadeias de protótipos* (*prototype chains*).
 
-> **Nota:** Simplemente usando `Bar.prototype = Foo.prototype` dará lugar a dos objetos 
- > que comparten el **mismo** prototipo. Por lo tanto, los cambios que se realicen en un 
-> objeto afectará al otro objeto, así, en la mayoría de los casos no es el efecto 
-> deseado.
+> **Nota:** Simplesmente usando `Bar.prototype = Foo.prototype` teremos dois objetos 
+> que compartilham o **mesmo** protótipo. Portanto, as mudanças que se realizem em um 
+> destes objetos afetará o outro objeto, sendo assim, na maioria dos casos não este não é 
+> o comportamento desejado pelo desenvolvedor.
 
+    // construtor Foo
     function Foo() {
         this.value = 42;
     }
+
+    // Adiciona um método ao protótipo do construtor Foo
     Foo.prototype = {
         method: function() {}
-    };
+    }
 
+    // construtor Bar
     function Bar() {}
 
-    // Asigna el prototipo de Bar como una nueva instancia de Foo
+    // Define o protótipo de Bar como uma nova instância de Foo
     Bar.prototype = new Foo();
+
+    // Adiciona ao protótipo de Bar uma nova propriedade
     Bar.prototype.foo = 'Hello World';
 
-    // Asegura que el constructor sea Bar
+    // Assegura que o construcor seja Bar
     Bar.prototype.constructor = Bar;
 
-    var test = new Bar() // crea una nueva instancia de Bar
+    // cria uma nova instância do construtor Bar
+    var test = new Bar(); 
 
-    // Resultado de cadena de prototipos (prototype chain)
+    // Resultado da cadeia de protótipos (prototype chain)
     test [instance of Bar]
         Bar.prototype [instance of Foo] 
             { foo: 'Hello World' }
@@ -47,12 +47,13 @@ llamadas de *cadenas de prototipo* (*prototype chains*).
                 Object.prototype
                     { toString: ... /* etc. */ }
 
-En el código anterior, el objeto `test` hereda de `Bar.prototype` y `Foo.prototype`; 
-por lo tanto, tendrá acceso a la función `method` que se ha definido en `Foo`. 
-También se tendrá acceso a a la propiedad `value` de la **única** instancia de `Foo` 
-que compone su prototipo. Es importante tomar en cuenta que `new Bar()` **no** creará una nueva 
-instancia de `Foo`, pero retornará lo asignado en su prototipo; de este modo, todas las instancias 
-de `Bar` tendrán que compartir el **mismo** `valor` de la propiedad.
+No código anterior, o objeto `test` hedará de `Bar.prototype` e `Foo.prototype`,
+por isso ele terá acesso a função `method` que foi definida em `Foo`.
+
+Ele também terá acesso a propriedade `value` da **única** instância de `Foo` 
+que compõe seu protótipo. É importante notar que `new Bar()` **não** criará uma nova
+instância de `Foo`, mas reutilizará os atributos associados ao seu protótipo, desta forma, 
+todas as instâncias de `Bar` compartilharão o **mesmo** `valor` da propriedade.
 
 > **Nota:** **No** utilice `Bar.prototype = Foo`, ya que no apunta al prototipo
 > de `Foo`, sino al objeto de la función `Foo`. Así la cadena de prototipo
