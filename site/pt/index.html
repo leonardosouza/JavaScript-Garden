@@ -178,63 +178,45 @@ instância de <code>Foo</code>, mas reutilizará os atributos associados ao seu 
 todas as instâncias de <code>Bar</code> compartilharão o <strong>mesmo</strong> <code>valor</code> da propriedade.</p>
 
 <aside>
-  <p><strong>Nota:</strong> <strong>No</strong> utilice <code>Bar.prototype = Foo</code>, ya que no apunta al prototipo
-  de <code>Foo</code>, sino al objeto de la función <code>Foo</code>. Así la cadena de prototipo
-  cambiará a <code>Function.prototype</code> y no a <code>Foo.prototype</code>;
-  Por lo tanto, el <code>método</code> no estará disponible en la cadena de prototipo.</p>
+  <p><strong>Nota:</strong> <strong>Não</strong> use <code>Bar.prototype = Foo</code>, uma vez que não irá apontar para o protótipo
+  de <code>Foo</code>, mas sim para a função de objeto <code>Foo</code>. Assim, a cadeia de protótipos
+  vai passar por cima <code>Function.prototype</code>e não <code>Foo.prototype</code>,
+  portanto, o <code>método</code> não estará disponível na cadeia de protótipos.</p>
 </aside>
 
-</div><div><h3>Búsqueda de propiedades</h3>
+</div><div><h3>Busca de propriedades</h3>
 
-<p>Cuando se accede a las propiedades de un objeto, JavaScript recorre la cadena de
-prototipo hacia <strong>arriba</strong> hasta encontrar la propiedad con el nombre solicitado.</p>
+<p>Ao acessar as propriedades de um objeto, o JavaScript irá percorrer a cadeia de protótipos <strong>para cima</strong> até encontrar uma propriedade com o nome solicitado.</p>
 
-<p>Cuando se llega al final de la cadena - concretamente <code>Object.prototype</code> - y aún
-no se ha encontrado la propiedad especificada, se retornará un valor
-<a href="#core.undefined">undefined</a> en su lugar.</p>
+<p>Se atingir o topo da cadeia - ou seja <code>Object.prototype</code> - e ainda não encontrou a propriedade especificada, ele retornará o valor <a href="#core.undefined">undefined</a> em seu lugar.</p>
 
-</div><div><h3>La propiedad prototype</h3>
+</div><div><h3>A propriedade prototype</h3>
 
-<p>Aunque la propiedad prototype es usada por el lenguaje para construir la cadena
-de prototipos, es posible asignar <strong>cualquier</strong> valor. Aunque los tipos primitivos 
-serán ignorados cuando se asigne en prototype.</p>
+<p>Enquanto a propriedade prototype é usado pela linguagem para construir as cadeias de protótipos, é ainda possível atribuir qualquer valor dado para isto. No entanto, os tipos primitivos simplesmente ser ignorados quando atribuídos a prototype.</p>
 
 <pre><code>function Foo() {}
-Foo.prototype = 1; // no tendrá efecto
+Foo.prototype = 1; // não terá efeito
 </code></pre>
 
-<p>La asignación de objetos, como se muestra en el ejemplo anterior, funcionará, y permitirá
-la creación dinámica de cadena de prototipos.</p>
+<p>Atribuindo objetos, como mostrado no exemplo anterior, vai funcionar, além de permitir a criação dinâmica de cadeias de protótipos.</p>
 
-</div><div><h3>Rendimiento</h3>
+</div><div><h3>Performance</h3>
 
-<p>El tiempo tomado en la búsqueda de propiedades es alta y la cadena de prototipo puede
-presentar un impacto negativo critico en el rendimiento en partes del código. Además, 
-si ha tratado de acceder a propiedades que no existen este saltara a la cadena de prototipo.</p>
+<p>O tempo de pesquisa para as propriedades que estão no alto da cadeia de protótipos pode ter um impacto negativo no desempenho, e isso pode ser significativo no código onde o desempenho é crítico. Além disso, tentando acessar propriedades inexistentes fará o Javascript atravessar a cadeia de protótipos por completo.</p>
 
-<p>Además, al recorrer en <a href="#object.forinloop">iteración</a> las propiedades de un objeto
-y <strong>cada</strong> propiedad será encontrada en la cadena de prototipo de manera ennumerada.</p>
+<p>Além disso, quando <a href="#object.forinloop">iteramos</a> as propriedades de um objeto, cada propriedade existente na cadeia de protótipos será enumerada.</p>
 
-</div><div><h3>Extensión de prototipos nativos</h3>
+</div><div><h3>Extensão de protótipos nativos</h3>
 
-<p>Una mala característica que se suele utilizar para extender <code>Object.prototype</code> o cualquier
-otro prototipo construido.</p>
+<p>Uma característica ruim é normalmente extender <code>Object.prototype</code> a qualquer outro protótipo construído.</p>
 
-<p>Esta técnica es conocida en inglés como <a href="http://en.wikipedia.org/wiki/Monkey_patch">monkey patching</a> ya que <em>encapsula</em> lo que se interrumpe en el código.
-Si bien es utilizado en frameworks como <a href="http://prototypejs.org/">Prototype</a>, todavía no existen buenas razones para adoptarlo o integrarlo
-como tipos de dato o como funcionalidad no estándar.</p>
+<p>Esta técnica é conhecida como <a href="http://en.wikipedia.org/wiki/Monkey_patch">monkey patching</a> e quebra o <em>encapsulamento</em>. Embora utilizado por frameworks populares como <a href="http://prototypejs.org/">Prototype</a>, ainda não há uma boa razão para adotá-lo ou integrá-lo como tipos de dados ou funcionalidade não-padrão.</p>
 
-<p>La <strong>única</strong> buena razón para extender un prototipo es acondicionarlo a nuevas
-características en motores de JavaScript; por ejemplo, 
-<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/forEach"><code>Array.forEach</code></a>.</p>
+<p>A única boa razão para extender um protótipo embutido (built-in) é a portar os recursos mais recentes de motores de JavaScript, como por exemplo o <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/forEach"><code>Array.forEach</code></a>.</p>
 
-</div><div><h3>En conclusión</h3>
+</div><div><h3>Conclusão</h3>
 
-<p>Se <strong>debe</strong> entender por completo el módelo de herencia prototipado antes de 
-escribir código complejo que lo utlilice. Además, observe la longitud de la
-cadena de prototipo y modificala si es necesario para evitar posibles problemas de 
-rendimiento. Con relación a los prototipos nativos, estos <strong>nunca</strong> deben ser extendidos a 
-menos que sea para mantener la compatibilidad con nuevas características de JavaScript.</p></div></article><article id="object.hasownproperty"><h2><code>hasOwnProperty</code></h2><div><p>Con el fin de comprobar si un objeto posee una propiedad definida <em>en sí</em> mismo y <strong>no</strong>
+<p>É essencial entender o modelo de herança prototípica antes de escrever código complexo que faça uso dela. Além disso, estar ciente da extensão das cadeias de protótipos em seu código e dividi-las, se necessário, para evitar possíveis problemas de desempenho. Outro ponto, é que os protótipos nativos nunca devem ser extendidos a menos que seja por uma questão de compatibilidade com os mais recentes recursos de JavaScript.</p></div></article><article id="object.hasownproperty"><h2><code>hasOwnProperty</code></h2><div><p>Con el fin de comprobar si un objeto posee una propiedad definida <em>en sí</em> mismo y <strong>no</strong>
 en algún lugar de su <a href="#object.prototype">cadena de prototipo</a>, es necesario utilizar
 el método <code>hasOwnProperty</code> ya que todos los objetos herendan de <code>Object.prototype</code>.</p>
 

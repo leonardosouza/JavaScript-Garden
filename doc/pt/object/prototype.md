@@ -55,63 +55,47 @@ que compõe seu protótipo. É importante notar que `new Bar()` **não** criará
 instância de `Foo`, mas reutilizará os atributos associados ao seu protótipo, desta forma, 
 todas as instâncias de `Bar` compartilharão o **mesmo** `valor` da propriedade.
 
-> **Nota:** **No** utilice `Bar.prototype = Foo`, ya que no apunta al prototipo
-> de `Foo`, sino al objeto de la función `Foo`. Así la cadena de prototipo
-> cambiará a `Function.prototype` y no a `Foo.prototype`;
-> Por lo tanto, el `método` no estará disponible en la cadena de prototipo.
+> **Nota:** **Não** use `Bar.prototype = Foo`, uma vez que não irá apontar para o protótipo
+> de `Foo`, mas sim para a função de objeto `Foo`. Assim, a cadeia de protótipos
+> vai passar por cima `Function.prototype`e não `Foo.prototype`,
+> portanto, o `método` não estará disponível na cadeia de protótipos.
 
-### Búsqueda de propiedades
 
-Cuando se accede a las propiedades de un objeto, JavaScript recorre la cadena de
-prototipo hacia **arriba** hasta encontrar la propiedad con el nombre solicitado.
+### Busca de propriedades
 
-Cuando se llega al final de la cadena - concretamente `Object.prototype` - y aún
-no se ha encontrado la propiedad especificada, se retornará un valor
-[undefined](#core.undefined) en su lugar.
+Ao acessar as propriedades de um objeto, o JavaScript irá percorrer a cadeia de protótipos **para cima** até encontrar uma propriedade com o nome solicitado.
 
-### La propiedad prototype
+Se atingir o topo da cadeia - ou seja `Object.prototype` - e ainda não encontrou a propriedade especificada, ele retornará o valor [undefined](#core.undefined) em seu lugar.
 
-Aunque la propiedad prototype es usada por el lenguaje para construir la cadena
-de prototipos, es posible asignar **cualquier** valor. Aunque los tipos primitivos 
-serán ignorados cuando se asigne en prototype.
+### A propriedade prototype
+
+Enquanto a propriedade prototype é usado pela linguagem para construir as cadeias de protótipos, é ainda possível atribuir qualquer valor dado para isto. No entanto, os tipos primitivos simplesmente ser ignorados quando atribuídos a prototype.
 
     function Foo() {}
-    Foo.prototype = 1; // no tendrá efecto
+    Foo.prototype = 1; // não terá efeito
 
-La asignación de objetos, como se muestra en el ejemplo anterior, funcionará, y permitirá
-la creación dinámica de cadena de prototipos.
+Atribuindo objetos, como mostrado no exemplo anterior, vai funcionar, além de permitir a criação dinâmica de cadeias de protótipos.
 
-### Rendimiento
 
-El tiempo tomado en la búsqueda de propiedades es alta y la cadena de prototipo puede
-presentar un impacto negativo critico en el rendimiento en partes del código. Además, 
-si ha tratado de acceder a propiedades que no existen este saltara a la cadena de prototipo.
+### Performance
 
-Además, al recorrer en [iteración](#object.forinloop) las propiedades de un objeto
-y **cada** propiedad será encontrada en la cadena de prototipo de manera ennumerada.
- 
-### Extensión de prototipos nativos
+O tempo de pesquisa para as propriedades que estão no alto da cadeia de protótipos pode ter um impacto negativo no desempenho, e isso pode ser significativo no código onde o desempenho é crítico. Além disso, tentando acessar propriedades inexistentes fará o Javascript atravessar a cadeia de protótipos por completo.
 
-Una mala característica que se suele utilizar para extender `Object.prototype` o cualquier
-otro prototipo construido.
+Além disso, quando [iteramos](#object.forinloop) as propriedades de um objeto, cada propriedade existente na cadeia de protótipos será enumerada.
 
-Esta técnica es conocida en inglés como [monkey patching][1] ya que *encapsula* lo que se interrumpe en el código.
-Si bien es utilizado en frameworks como [Prototype][2], todavía no existen buenas razones para adoptarlo o integrarlo
-como tipos de dato o como funcionalidad no estándar.
+### Extensão de protótipos nativos
 
-La **única** buena razón para extender un prototipo es acondicionarlo a nuevas
-características en motores de JavaScript; por ejemplo, 
-[`Array.forEach`][3].
+Uma característica ruim é normalmente extender `Object.prototype` a qualquer outro protótipo construído.
 
-### En conclusión
+Esta técnica é conhecida como [monkey patching][1] e quebra o *encapsulamento*. Embora utilizado por frameworks populares como [Prototype][2], ainda não há uma boa razão para adotá-lo ou integrá-lo como tipos de dados ou funcionalidade não-padrão.
 
-Se **debe** entender por completo el módelo de herencia prototipado antes de 
-escribir código complejo que lo utlilice. Además, observe la longitud de la
-cadena de prototipo y modificala si es necesario para evitar posibles problemas de 
-rendimiento. Con relación a los prototipos nativos, estos **nunca** deben ser extendidos a 
-menos que sea para mantener la compatibilidad con nuevas características de JavaScript.
+A única boa razão para extender um protótipo embutido (built-in) é a portar os recursos mais recentes de motores de JavaScript, como por exemplo o [`Array.forEach`][3].
+
+
+### Conclusão
+
+É essencial entender o modelo de herança prototípica antes de escrever código complexo que faça uso dela. Além disso, estar ciente da extensão das cadeias de protótipos em seu código e dividi-las, se necessário, para evitar possíveis problemas de desempenho. Outro ponto, é que os protótipos nativos nunca devem ser extendidos a menos que seja por uma questão de compatibilidade com os mais recentes recursos de JavaScript.
 
 [1]: http://en.wikipedia.org/wiki/Monkey_patch
 [2]: http://prototypejs.org/
 [3]: https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/forEach
-
