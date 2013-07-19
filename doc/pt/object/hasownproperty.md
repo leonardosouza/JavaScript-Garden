@@ -30,7 +30,7 @@ mas em algum lugar em sua cadeia de protótipos.
 ### `hasOwnProperty` como uma propriedade
 
 JavaScript **não** protege o nome da propriedade `hasOwnProperty`, assim, existe a possibilidade
-de que um objeto pode ter uma propriedade com este nome, é necessário usar 
+de que um objeto pode ter uma propriedade com este nome, sendo necessário usar 
 um `hasOwnProperty` externo para obter resultados corretos.
 
     var foo = {

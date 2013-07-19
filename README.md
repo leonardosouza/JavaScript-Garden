@@ -21,6 +21,7 @@ This guide is the work of two lovely Stack Overflow users, [Ivo Wetzel][6]
 
  - [Caio Romão][8] (Spelling corrections)
  - [Andreas Blixt][9] (Language corrections)
+ - [Leonardo Souza][11] (Portuguese translation)
 
 ### License
 
@@ -38,3 +39,4 @@ Stack Overflow chat.
 [8]: https://github.com/caio
 [9]: https://github.com/blixt
 [10]: http://chat.stackoverflow.com/rooms/17/javascript
+[11]: https://github.com/leonardosouza

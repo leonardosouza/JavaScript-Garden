@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="pt"><head><title>JavaScript Garden</title><meta charset="utf-8"><meta name="description" content="Um guia sobre as peculiaridades e defeitos do JavaScript."><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="../style/garden.css" media="all"><link rel="stylesheet" href="../style/print.css" media="print"><!--[if lt IE 9]>
 <script src="javascript/html5.js"></script>
 <![endif]-->
-</head><body><!-- Navigation--><nav id="nav_main"><div><ul><li><a href="/JavaScript-Garden/" title="JavaScript Garden in English">en</a></li><li><a href="/JavaScript-Garden/es" title="JavaScript Garden es Español">es</a></li><li><a href="/JavaScript-Garden/fi" title="JavaScript-puutarha suomeksi">fi</a></li><li><a href="/JavaScript-Garden/ja" title="JavaScript Garden in Japanese">ja</a></li><li><a href="/JavaScript-Garden/ko" title="JavaScript Garden">ko</a></li><li><a href="/JavaScript-Garden/pl" title="JavaScript Garden - ogród JavaScript po polsku">pl</a></li><li class="active"><a href="/JavaScript-Garden/pt" title="JavaScript Garden em Português">pt</a></li><li><a href="/JavaScript-Garden/ru" title="JavaScript Гарден по-русски">ru</a></li><li><a href="/JavaScript-Garden/tr" title="JavaScript Garden Türkçe">tr</a></li><li><a href="/JavaScript-Garden/zh" title="JavaScript Garden 中文翻译">zh</a></li><li><a href="/JavaScript-Garden/zhtw" title="JavaScript Garden 繁體中文翻譯">zhtw</a></li></ul><a id="top" href="#intro" title="Back to top">#top</a><a id="hide_menu" class="tablet">Hide Menu</a></div><ul><li class="nav_intro"><h1><a href="#intro">Introdução</a></h1><ul></ul></li><li class="nav_object"><h1><a href="#object">Objetos</a></h1><ul><li><a href="#object.general">Uso de objetos e propriedades</a></li><li><a href="#object.prototype">Protótipo</a></li><li><a href="#object.hasownproperty"><code>hasOwnProperty</code></a></li><li><a href="#object.forinloop">El bucle <code>for in</code></a></li></ul></li><li class="nav_function"><h1><a href="#function">Funções</a></h1><ul><li><a href="#function.general">La declaración de funciones y expresiones</a></li><li><a href="#function.this">Cómo trabaja <code>this</code></a></li><li><a href="#function.closures">Closures y referencias</a></li><li><a href="#function.arguments">El objeto <code>arguments</code></a></li><li><a href="#function.constructors">Constructores</a></li><li><a href="#function.scopes">Ámbitos y Namespaces</a></li></ul></li><li class="nav_array"><h1><a href="#array">Arrays</a></h1><ul><li><a href="#array.general">Iteración de un Array y sus propiedades</a></li><li><a href="#array.constructor">El constructor <code>Array</code></a></li></ul></li><li class="nav_types"><h1><a href="#types">Tipos</a></h1><ul><li><a href="#types.equality">Equality and Comparisons</a></li><li><a href="#types.typeof">The <code>typeof</code> Operator</a></li><li><a href="#types.instanceof">The <code>instanceof</code> Operator</a></li><li><a href="#types.casting">Type Casting</a></li></ul></li><li class="nav_core"><h1><a href="#core">Núcleo</a></h1><ul><li><a href="#core.eval">¿Por qué no usar <code>eval</code>?</a></li><li><a href="#core.undefined"><code>undefined</code> y <code>null</code></a></li><li><a href="#core.semicolon">Automatic Semicolon Insertion</a></li></ul></li><li class="nav_other"><h1><a href="#other">Outros</a></h1><ul><li><a href="#other.timeouts"><code>setTimeout</code> and <code>setInterval</code></a></li></ul></li></ul></nav><!-- Mobile navigation--><nav id="nav_mobile"><a id="nav_prev_section" href="#">prev section<span class="nav_section_name">section name</span></a><a id="nav_next_section" href="#">next section<span class="nav_section_name">section name</span></a><a id="show_menu">show menu</a></nav><!-- Sections--><section id="intro"><!-- Introduction--><header id="intro.intro"><h1>Introdução</h1><div><p><strong>Javascript Garden</strong> é uma coleção crescente de documentação sobre as partes mais peculiares da linguagem de programação JavaScript. Ele dá conselhos para evitar os erros mais comuns e sútis, bem como problemas de desempenho e más práticas, que os programadores de JavaScript não-especialistas podem encontrar em seus estudos ao se aprofundar na linguagem.</p>
+</head><body><!-- Navigation--><nav id="nav_main"><div><ul><li><a href="/JavaScript-Garden/" title="JavaScript Garden in English">en</a></li><li><a href="/JavaScript-Garden/es" title="JavaScript Garden es Español">es</a></li><li><a href="/JavaScript-Garden/fi" title="JavaScript-puutarha suomeksi">fi</a></li><li><a href="/JavaScript-Garden/ja" title="JavaScript Garden in Japanese">ja</a></li><li><a href="/JavaScript-Garden/ko" title="JavaScript Garden">ko</a></li><li><a href="/JavaScript-Garden/pl" title="JavaScript Garden - ogród JavaScript po polsku">pl</a></li><li class="active"><a href="/JavaScript-Garden/pt" title="JavaScript Garden em Português">pt</a></li><li><a href="/JavaScript-Garden/ru" title="JavaScript Гарден по-русски">ru</a></li><li><a href="/JavaScript-Garden/tr" title="JavaScript Garden Türkçe">tr</a></li><li><a href="/JavaScript-Garden/zh" title="JavaScript Garden 中文翻译">zh</a></li><li><a href="/JavaScript-Garden/zhtw" title="JavaScript Garden 繁體中文翻譯">zhtw</a></li></ul><a id="top" href="#intro" title="Back to top">#top</a><a id="hide_menu" class="tablet">Hide Menu</a></div><ul><li class="nav_intro"><h1><a href="#intro">Introdução</a></h1><ul></ul></li><li class="nav_object"><h1><a href="#object">Objetos</a></h1><ul><li><a href="#object.general">Uso de objetos e propriedades</a></li><li><a href="#object.prototype">Protótipo</a></li><li><a href="#object.hasownproperty"><code>hasOwnProperty</code></a></li><li><a href="#object.forinloop">O loop <code>for in</code></a></li></ul></li><li class="nav_function"><h1><a href="#function">Funções</a></h1><ul><li><a href="#function.general">La declaración de funciones y expresiones</a></li><li><a href="#function.this">Cómo trabaja <code>this</code></a></li><li><a href="#function.closures">Closures y referencias</a></li><li><a href="#function.arguments">El objeto <code>arguments</code></a></li><li><a href="#function.constructors">Constructores</a></li><li><a href="#function.scopes">Ámbitos y Namespaces</a></li></ul></li><li class="nav_array"><h1><a href="#array">Arrays</a></h1><ul><li><a href="#array.general">Iteración de un Array y sus propiedades</a></li><li><a href="#array.constructor">El constructor <code>Array</code></a></li></ul></li><li class="nav_types"><h1><a href="#types">Tipos</a></h1><ul><li><a href="#types.equality">Equality and Comparisons</a></li><li><a href="#types.typeof">The <code>typeof</code> Operator</a></li><li><a href="#types.instanceof">The <code>instanceof</code> Operator</a></li><li><a href="#types.casting">Type Casting</a></li></ul></li><li class="nav_core"><h1><a href="#core">Núcleo</a></h1><ul><li><a href="#core.eval">¿Por qué no usar <code>eval</code>?</a></li><li><a href="#core.undefined"><code>undefined</code> y <code>null</code></a></li><li><a href="#core.semicolon">Automatic Semicolon Insertion</a></li></ul></li><li class="nav_other"><h1><a href="#other">Outros</a></h1><ul><li><a href="#other.timeouts"><code>setTimeout</code> and <code>setInterval</code></a></li></ul></li></ul></nav><!-- Mobile navigation--><nav id="nav_mobile"><a id="nav_prev_section" href="#">prev section<span class="nav_section_name">section name</span></a><a id="nav_next_section" href="#">next section<span class="nav_section_name">section name</span></a><a id="show_menu">show menu</a></nav><!-- Sections--><section id="intro"><!-- Introduction--><header id="intro.intro"><h1>Introdução</h1><div><p><strong>Javascript Garden</strong> é uma coleção crescente de documentação sobre as partes mais peculiares da linguagem de programação JavaScript. Ele dá conselhos para evitar os erros mais comuns e sútis, bem como problemas de desempenho e más práticas, que os programadores de JavaScript não-especialistas podem encontrar em seus estudos ao se aprofundar na linguagem.</p>
 
 <p>Javascript Garden não pretende ensinar-lhe JavaScript. O pré-conhecimento da linguagem é altamente recomendável, a fim de compreender os tópicos abordados neste guia. Se você preferir, aprender as noções básicas da linguagem, por favor, dirija-se ao excelente <a href="https://developer.mozilla.org/en/JavaScript/Guide">guia</a>
 disponível no Mozilla Developer Network.</p>
@@ -216,22 +216,22 @@ Foo.prototype = 1; // não terá efeito
 
 </div><div><h3>Conclusão</h3>
 
-<p>É essencial entender o modelo de herança prototípica antes de escrever código complexo que faça uso dela. Além disso, estar ciente da extensão das cadeias de protótipos em seu código e dividi-las, se necessário, para evitar possíveis problemas de desempenho. Outro ponto, é que os protótipos nativos nunca devem ser extendidos a menos que seja por uma questão de compatibilidade com os mais recentes recursos de JavaScript.</p></div></article><article id="object.hasownproperty"><h2><code>hasOwnProperty</code></h2><div><p>Con el fin de comprobar si un objeto posee una propiedad definida <em>en sí</em> mismo y <strong>no</strong>
-en algún lugar de su <a href="#object.prototype">cadena de prototipo</a>, es necesario utilizar
-el método <code>hasOwnProperty</code> ya que todos los objetos herendan de <code>Object.prototype</code>.</p>
+<p>É essencial entender o modelo de herança prototípica antes de escrever código complexo que faça uso dela. Além disso, estar ciente da extensão das cadeias de protótipos em seu código e dividi-las, se necessário, para evitar possíveis problemas de desempenho. Outro ponto, é que os protótipos nativos nunca devem ser extendidos a menos que seja por uma questão de compatibilidade com os mais recentes recursos de JavaScript.</p></div></article><article id="object.hasownproperty"><h2><code>hasOwnProperty</code></h2><div><p>Com a finalidade de aferir se um objeto possue uma propriedade definida <em>em si</em> mesmo e <strong>não</strong>
+de algum lugar de sua <a href="#object.prototype">cadeia de protótipos</a>, é necessário utilizar
+o método  <code>hasOwnProperty</code> que todos os objetos herdam de <code>Object.prototype</code>.</p>
 
 <aside>
-  <p><strong>Nota:</strong> <strong>No</strong> es suficiente con comprobar si una propiedad está <code>definida</code>.
-  La propiedad bien podría existir, pero su valor sólo pasa a ser definido como 
+  <p><strong>Nota:</strong> <strong>Não</strong> é suficiente verificar se uma propriedade é <code>undefined</code>.
+  A propriedade continuará existindo, e apenas o seu valor é que passará a ser definido como
   <code>undefined</code>.</p>
 </aside>
 
-<p><code>hasOwnProperty</code> es la única utilidad en JavaScript que se ocupa de las propiedades
-y <strong>no</strong> las salta en la cadena de prototipo.</p>
+<p><code>hasOwnProperty</code> é a única coisa em JavaScript que lida com as propriedades e não atravessar 
+a cadeia de protótipos.</p>
 
-<pre><code>// Envenenamiento en Object.prototype
+<pre><code>// Envenenando o Object.prototype
 Object.prototype.bar = 1; 
-var foo = {goo: undefined};
+var foo = { goo: undefined };
 
 foo.bar; // 1
 &#39;bar&#39; in foo; // true
@@ -240,16 +240,16 @@ foo.hasOwnProperty(&#39;bar&#39;); // false
 foo.hasOwnProperty(&#39;goo&#39;); // true
 </code></pre>
 
-<p>Sólo <code>hasOwnProperty</code> retornará el resultado correcto y esperado, esto es
-ensencial cuando se repite una iteración en las propiedades de cualquier objeto. No hay
-otra maner de excluir las propiedades que no están definidas en el mismo objeto, pero 
-en alguna parte de su cadena de prototipo si.</p>
+<p>Apenas <code>hasOwnProperty</code> vai dar o resultado correto e esperado, o que é 
+essencial quando há iteração sobre as propriedades de qualquer objeto. Não há 
+outra maneira de excluir as propriedades que não são definidas no objeto em si, 
+mas em algum lugar em sua cadeia de protótipos.</p>
 
-</div><div><h3><code>hasOwnProperty</code> como propiedad</h3>
+</div><div><h3><code>hasOwnProperty</code> como uma propriedade</h3>
 
-<p>JavaScript <strong>no</strong> protege el nombre de la propiedad <code>hasOwnProperty</code>; de este modo, si existe
-la posibilidad de que un objeto tenga una propiedad con el mismo nombre, es necesario utilizar
-<code>hasOwnProperty</code> como propiedad <em>externa</em> con el fin de obtener resultados correctos.</p>
+<p>JavaScript <strong>não</strong> protege o nome da propriedade <code>hasOwnProperty</code>, assim, existe a possibilidade
+de que um objeto pode ter uma propriedade com este nome, sendo necessário usar 
+um <code>hasOwnProperty</code> externo para obter resultados corretos.</p>
 
 <pre><code>var foo = {
     hasOwnProperty: function() {
@@ -258,48 +258,47 @@ la posibilidad de que un objeto tenga una propiedad con el mismo nombre, es nece
     bar: &#39;Here be dragons&#39;
 };
 
-foo.hasOwnProperty(&#39;bar&#39;); // siempre devolverá false
+foo.hasOwnProperty(&#39;bar&#39;); // sempre devolverá false
 
-// Utilice otro objeto con hasOwnProperty y llamelo con &#39;this&#39; para asignarlo a foo
+// utilizando call empreste o método hasOwnProperty de outro objeto 
+// passando &#39;foo&#39; como objeto contexto para checar a propriedade &#39;bar&#39;
 ({}).hasOwnProperty.call(foo, &#39;bar&#39;); // true
 </code></pre>
 
-</div><div><h3>En conclusión</h3>
+</div><div><h3>Conclusão</h3>
 
-<p>Cuando se necesite comprobar la existencia de una propiedad en un objeto, <code>hasOwnProperty</code> es
-el <strong>único</strong> método para hacerlo. También se recomienda el uso de <code>hasOwnProperty</code> como
-parte de un <a href="#object.forinloop">bucle <code>for in</code></a>, esto evitará errores desde
-extenciones de <a href="#object.prototype">prototipos</a> nativos.</p></div></article><article id="object.forinloop"><h2>El bucle <code>for in</code></h2><div><p>Al igual que el operador <code>in</code>, el bucle <code>for in</code> también recorre sobre la 
-cadena de prototipo cuando este se repite en una iteración en las propiedades de un objeto.</p>
+<p>Usar <code>hasOwnProperty</code> é o único método confiável para verificar a existência de uma propriedade em um objeto. 
+Recomenda-se o uso de <code>hasOwnProperty</code> sempre que fizer uso de estruturas de repetição, como <a href="#object.forinloop">loops <code>for in</code></a>, isto evitará que ocorram erros com propriedades provenientes da extensão de <a href="#object.prototype">protótipos</a>
+nativos.</p></div></article><article id="object.forinloop"><h2>O loop <code>for in</code></h2><div><p>Assim como o operador <code>in</code>, o loop <code>for in</code> também percorre a cadeia de protótipos quando itera as propriedades de um objeto.</p>
 
 <aside>
-  <p><strong>Nota:</strong> El bucle <code>for in</code> <strong>no</strong> se repetirá en cualquier propiedad que 
-  tenga atributos <code>enumerables</code> asignados a <code>false</code>; por ejemplo, la propiedad 
-  <code>length</code> de un array.</p>
+  <p><strong>Nota:</strong> O loop <code>for in</code> <strong>não</strong> se repetirá em qualquer propriedade que
+  tenha atributos <code>enumeráveis</code> definidos como <code>false</code>; por exemplo, a propriedade 
+  <code>length</code> de um array.</p>
 </aside>
 
-<pre><code>// Envenenamiento en Object.prototype
+<pre><code>// Envenenando o Object.prototype
 Object.prototype.bar = 1;
 
 var foo = {moo: 2};
 for(var i in foo) {
-    console.log(i); // Imprime ambos bar y moo
+    console.log(i); // Imprime as propriedades bar e moo
 }
 </code></pre>
 
-<p>Dado que no es posible cambiar el comportamiento del bucle <code>for in</code> en sí mismo, es
-necesario filtrar las propiedades internas no deseadas dentro del bucle, 
-esto se hace mediante el uso del método <a href="#object.hasownproperty"><code>hasOwnProperty</code></a> del 
+<p>Já que não é possível modificar o comportamento do loop <code>for in</code> em si mesmo, é
+necessário filtrar as propriedades internas não desejadas dentro do loop,
+para isto utilizamos o método <a href="#object.hasownproperty"><code>hasOwnProperty</code></a> de
 <code>Object.prototype</code>.</p>
 
 <aside>
-  <p><strong>Nota:</strong> Dado que <code>for in</code> siempre recorre por completo la cadena de prototipo, 
-  este se pondrá más lento con cada capa adicional que un objeto herede.</p>
+  <p><strong>Nota:</strong> Como <code>for in</code> sempre percorre por completo a cadeia de protótipos, 
+  ele ficará mais lento a cada camada adicional de herença adicionado a um objeto.</p>
 </aside>
 
-</div><div><h3>Usando <code>hasOwnProperty</code> para filtrado</h3>
+</div><div><h3>Usando <code>hasOwnProperty</code> para filtragem</h3>
 
-<pre><code>// Aún es el foo del código de arriba
+<pre><code>// O mesmo objeto foo do código acima
 for(var i in foo) {
     if (foo.hasOwnProperty(i)) {
         console.log(i);
@@ -307,20 +306,18 @@ for(var i in foo) {
 }
 </code></pre>
 
-<p>Está versión es la única forma correcta de uso. Esto se debe <strong>sólo</strong> al uso de 
-<code>hasOwnProperty</code> que imprimirá <code>moo</code>. Cuando <code>hasOwnProperty</code> se omita, el código es 
-propenso a errores  en los casos de prototipos nativos - ej. <code>Object.prototype</code> - 
-se ha extendedido.</p>
+<p>Está versão é a única forma correta de uso. Isto se deve <strong>apenas</strong> ao uso de
+<code>hasOwnProperty</code> que imprimirá <code>moo</code>. Quando <code>hasOwnProperty</code> for omitido, o código é
+propenso a erros para os casos em que os protótipos nativos - ex. <code>Object.prototype</code> -
+tenham sido extendidos. </p>
 
-<p>Uno de los frameworks más usado que implementa estas funcionalidades es <a href="http://www.prototypejs.org/">Prototype</a>. Cuando el 
-framework es incluido, el bucle <code>for in</code> que no utilicen <code>hasOwnProperty</code> no podrá garantizar que 
-se interrumpa.</p>
+<p>Um dos frameworks mais usados que implementa essa funcionalidade é o <a href="http://www.prototypejs.org/">Prototype</a>.
+Quando o framework é incluido, o loop <code>for in</code> que não utilizar <code>hasOwnProperty</code> não poderá
+garantir que não será interrompido.</p>
 
-</div><div><h3>En conclusión</h3>
+</div><div><h3>Conclusão</h3>
 
-<p>Se recomienda utilizar <strong>siempre</strong> el uso de <code>hasOwnProperty</code>. Nunca debe suponer <br />
-ningún entorno donde el código se ejecute, o si los prototipos
-nativos han sido extendidos o no. </p></div></article></section><section id="function"><!-- Introduction--><header id="function.intro"><h1>Funções</h1></header><!-- Articles--><article id="function.general"><h2>La declaración de funciones y expresiones</h2><div><p>Las funciones en JavaScript son las primeras clases de objetos. Esto significa que se
+<p>Recomenda-se usar <strong>sempre</strong>  utilizar <code>hasOwnProperty</code>. Pressupostos nunca devem ser feitos sobre o meio ambiente em que o código está sendo executado, ou se os protótipos nativos foram extendidos ou não. </p></div></article></section><section id="function"><!-- Introduction--><header id="function.intro"><h1>Funções</h1></header><!-- Articles--><article id="function.general"><h2>La declaración de funciones y expresiones</h2><div><p>Las funciones en JavaScript son las primeras clases de objetos. Esto significa que se
 puede pasar como cualquier otro valor. Un uso común de está característica es pasar de
 una <em>función anónima</em> a otra, posiblemente una función asíncrona. Esto se conoce como <code>callback</code>.</p>
 
