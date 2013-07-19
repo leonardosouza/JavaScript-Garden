@@ -1,6 +1,6 @@
-## Protótipo
+## Protótipos
 
-Javascript não possue em suas características um sistema clássico de herença, mas utiliza *protótipos* para isto.
+Javascript não possue em suas características um sistema clássico de herança, mas utiliza *protótipos* para isto.
 
 Enquanto isso muitas vezes é considerada um dos pontos fracos do JavaScript, o modelo de herança prototípica é de fato mais poderoso que o modelo clássico. Por exemplo, é relativamente trivial construir um modelo clássico baseado em um modelo de protótipo, enquanto o contrário é uma tarefa muito mais difícil.
 
