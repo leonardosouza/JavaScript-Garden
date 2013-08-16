@@ -1,11 +1,9 @@
-## Closures y referencias
+## Closures
 
-Una de las características más poderosas de JavaScript es la disponibilidad de *closures* (cerraduras),
-esto significa que los ámbitos **siempre** podrán ser accedidos por ámbitos externos donde
-fueron definidos. Dado que sólo el alcance es único en JavaScript en el 
-[ámbito de la función](#function.scopes), todas las funciones, por omisión, actúan como closures.
+Um dos recursos mais poderosos no JavaScript é viabilidade de closures. Com closures,
+escopos internos podem manter acesso ao escopo externo, em que foram definidos. Uma vez que o único escopo que temos no JavaScript é o chamado [escopo de função](#function.scopes), todas as funções, por padrão, agem como closures.
 
-### Emulando variables privadas
+### Emulando variáveis privadas
 
     function Counter(start) {
         var count = start;
@@ -24,10 +22,8 @@ fueron definidos. Dado que sólo el alcance es único en JavaScript en el
     foo.increment();
     foo.get(); // 5
 
-En este caso, `Counter` retorna **dos** closures. La función `increment` y la
-función `get`. Ambas funciones mantienen el ámbito de la **referencia** de  
-`Counter` y, por lo tanto, siempre accede a la variable `count` que fue definido
-en el ámbito.
+Neste caso, `Counter` retorna **duas** closures. A função `increment` e a
+função `get`. Ambas funções mantém **referência** ao escopo de `Counter` e, por isso, conseguem acessar a variável `count` que foi definida neste escopo.
 
 ### ¿Por qué las variables privadas trabajan?
 
